@@ -67,5 +67,79 @@ ORDER BY age ASC;
 
 SELECT * FROM students
 ORDER BY age DESC;
+
+/* Day 3 */
+
+INSERT INTO students VALUES(06 , 'Om' , 19 , 'IT' , 'om@2006' , '2026-03-05');
+
+INSERT INTO students 
+VALUES
+(07 , 'Harshal' , 22 , 'IT' , 'harshal@2006' , '2026-03-04'),
+(08 , 'Manas' , 20 , 'civil' , 'manas@2005' , '2026-03-03'),
+(09 , 'Aakash' , 23 , 'electrical' , 'Aakash@2003' , '2026-03-04');
+ 
+ SELECT COUNT(*) FROM students;
+ SELECT AVG(age) FROM students;
+ SELECT COUNT(age) FROM students;
+ SELECT MIN(age) FROM students;
+ SELECT MAX(age) FROM students;
+ SELECT SUM(age) FROM students;
+ 
+ SELECT branch , COUNT(*)
+ FROM students
+ GROUP BY branch;
+ 
+ SELECT branch , AVG(age)
+ FROM students
+ GROUP BY branch;
+ 
+ SELECT branch , COUNT(*)
+ FROM students
+ GROUP BY branch
+ HAVING COUNT(*) > 1;
+ 
+  /* day 4 */
+ 
+ CREATE TABLE courses(
+ course_id INT PRIMARY KEY,
+ course_name VARCHAR(20) NOT NULL,
+ duration_month INT ,
+ fees INT DEFAULT 10000
+ );
+ 
+INSERT INTO courses(course_id , course_name , duration_month , fees)
+VALUES
+(01 , 'DSA' , 12 , 20000),
+(02 , 'JAVA Full Stack' , 4 , 15000),
+(03 , 'SQL' , 2 , 5000),
+(04 , 'MERN Full Stack' , 6 , 25000);
+
+ALTER TABLE courses
+ADD instructor_name VARCHAR(30);
+
+ALTER TABLE courses
+ADD CONSTRAINT UNIQUE(course_name);
+
+UPDATE courses
+SET instructor_name = 'Digambar Patil'
+WHERE course_id = 01;
+
+UPDATE courses
+SET instructor_name = 'Kundan Patil'
+WHERE course_id = 02;
+
+UPDATE courses
+SET instructor_name = 'Shravan Desale'
+WHERE course_id = 03;
+
+UPDATE courses
+SET instructor_name = 'Aakash Patil'
+WHERE course_id = 04;
+
+ALTER TABLE courses
+DROP duration_month;
+
+SELECT * FROM courses;
+
  
 
