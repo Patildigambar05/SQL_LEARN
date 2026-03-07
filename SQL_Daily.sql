@@ -141,5 +141,56 @@ DROP duration_month;
 
 SELECT * FROM courses;
 
+/* Day 5 */
+USE college;
+
+CREATE TABLE marks(
+student_id INT PRIMARY KEY,
+subject VARCHAR(20),
+marks INT 
+);
+
+INSERT INTO marks(student_id ,subject , marks)
+VALUES
+(01 , 'Math' , 95),
+(02 , 'Physics', 85),
+(03 , 'Chemistry' , 79),
+(04 , 'Math' , 90),
+(05 , 'Chemistry' , 76);
+
+
+/* Print name and marks */
+
+SELECT name , marks
+FROM students
+INNER JOIN marks
+ON students.id = marks.student_id;
+
+
+/* Print name , subject and marks */
+
+SELECT name , subject ,marks
+FROM students
+INNER JOIN marks
+ON students.id = marks.student_id;
+
+
+/* Display all students whose marks greater than 70 */
+
+SELECT name FROM students
+INNER JOIN marks
+ON students.id = marks.student_id
+WHERE marks.marks > 70;
+
+
+/* Display students from branch = 'CSE' along with their  subject and marks. */
+
+SELECT name , subject , marks
+FROM students
+INNER JOIN marks
+ON students.id = marks.student_id
+WHERE students.branch = 'computer';
+
+
  
 
