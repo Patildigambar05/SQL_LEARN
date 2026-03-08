@@ -192,5 +192,51 @@ ON students.id = marks.student_id
 WHERE students.branch = 'computer';
 
 
+/* Day 6 */
+
+INSERT INTO marks(student_id , subject)
+VALUES
+(06 , 'Math'),
+(07 , 'Physics');
+
+/* Display all students and their marks using LEFT JOIN. */
+
+SELECT name , marks
+FROM students
+LEFT JOIN marks
+ON students.id = marks.student_id;
+
+SELECT * FROM students;
+
+/* Display student name, subject and marks using LEFT JOIN. */
+
+SELECT name , subject , marks 
+FROM students
+LEFT JOIN marks
+ON students.id = marks.student_id;
+
+/* Display all marks along with student names using RIGHT JOIN. */
+
+SELECT students.name , marks.marks
+FROM students
+RIGHT JOIN marks
+ON students.id = marks.student_id;
+
+/* Find students who do NOT have any marks. */
+
+SELECT name 
+FROM students 
+LEFT JOIN marks
+ON students.id = marks.student_id
+WHERE marks.marks IS null;
+
+/*  Display students from branch = 'CSE' along with their marks using LEFT JOIN */
+
+SELECT name , marks
+FROM students
+LEFT JOIN marks
+ON students.id = marks.student_id
+WHERE branch = 'computer';
+
  
 
